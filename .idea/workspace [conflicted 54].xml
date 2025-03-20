@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RunManager" selected="Application.TestConexion">
+    <configuration name="TestConexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.escuela.javaescuelasena.TestConexion" />
+      <module name="JavaEscuelaSENA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.escuela.javaescuelasena.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.JavaEscuelaSENA" />
+      <item itemvalue="Application.TestConexion" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestConexion" />
+      </list>
+    </recent_temporary>
+  </component>
+</project>

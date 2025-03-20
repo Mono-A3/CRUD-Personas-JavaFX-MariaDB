@@ -11,15 +11,11 @@ public class DatabaseConnection {
 
     public static Connection getConnection() {
         try {
-            // 🔥 Forzar la carga del driver (solo si sigue fallando)
-            Class.forName("org.mariadb.jdbc.Driver");
-
-            return DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (ClassNotFoundException e) {
-            System.err.println("❌ No se encontró el driver de MariaDB.");
-            return null;
-        } catch (SQLException e) {
-            System.err.println("❌ Error de conexión a la base de datos: " + e.getMessage());
+            Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("Conexión exitosa a la base de datos.");
+            return con;
+        } catch (SQLException e ) {
+            System.err.println("Error de conexión: " + e.getMessage());
             return null;
         }
     }

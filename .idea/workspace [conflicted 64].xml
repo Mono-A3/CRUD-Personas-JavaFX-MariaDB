@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="55f5dc8a-c699-4045-9925-f0def6df64ae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/andresdebian.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/default_user.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace [conflicted 56].xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace [conflicted 57].xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace [conflicted 58].xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace [conflicted 59].xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace [conflicted 60].xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace [conflicted 61].xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace [conflicted 62].xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/escuela/javaescuelasena/dao/PersonaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/escuela/javaescuelasena/dao/PersonaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/escuela/javaescuelasena/model/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/escuela/javaescuelasena/model/Persona.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>

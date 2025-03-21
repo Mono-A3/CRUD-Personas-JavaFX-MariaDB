@@ -27,6 +27,33 @@ public class PersonaDAO {
             return false;
         }
     }
+
+    public static List<Persona> obtenerTodas() {
+        List<Persona> listaPersonas = new ArrayList<>();
+        String sql = "SELECT * FROM persona";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+        Statement stml = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Persona persona = new Persona(
+                        rs.getInt("id_persona"),
+                        rs.getString("cedula"),
+                        rs.getString("nombre"),
+                        rs.getString("domicilio"),
+                        rs.getString("telefono"),
+                        rs.getString("correo_electronico"),
+                        rs.getDate("fecha_nacimiento").toLocalDate(),
+                        rs.getString("genero")
+                );
+                listaPersonas.add(persona);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener personas: " + e.getMessage());
+        }
+        return listaPersonas;
+    }
 }
 
 

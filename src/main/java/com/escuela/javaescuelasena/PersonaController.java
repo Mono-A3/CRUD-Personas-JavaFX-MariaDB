@@ -79,6 +79,8 @@ public class PersonaController {
 
         if (PersonaDAO.guardar(persona)) {
             mostrarAlerta("Persona agregada con éxito");
+            limpiarCampos();
+            cargarPersonas();
         } else {
             mostrarError("No se pudo agregar la persona");
         }

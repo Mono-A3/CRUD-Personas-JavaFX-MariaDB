@@ -86,17 +86,7 @@
                 </configuration>
             </plugin>
 
-            <!-- JavaFX Plugin -->
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.8</version>
-                <configuration>
-                    <mainClass>com.escuela.javaescuelasena.Main</mainClass>
-                </configuration>
-            </plugin>
-
-            <!-- JAR FAT (Incluye todas las dependencias) -->
+            <!-- JAR FAT (Incluye todas las dependencias y JavaFX) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -107,6 +97,28 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Empaquetado para Linux (Crea un ZIP con dependencias) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>JavaEscuelaSENA-Linux</finalName>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

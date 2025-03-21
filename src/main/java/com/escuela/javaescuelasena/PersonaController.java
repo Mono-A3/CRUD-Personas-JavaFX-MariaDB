@@ -2,8 +2,11 @@ package com.escuela.javaescuelasena;
 
 import com.escuela.javaescuelasena.dao.PersonaDAO;
 import com.escuela.javaescuelasena.model.Persona;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 
@@ -107,9 +110,35 @@ public class PersonaController {
 
     @FXML
     private TableView<Persona> tablaPersonas;
+    @FXML
+    private TableColumn<Persona, Integer> colId;
+    @FXML
+    private TableColumn<Persona, String> colCedula, colNombre, colDomicilio, colTelefono, colCorreoElectronico, colGenero;
+    @FXML
+    private TableColumn<Persona, LocalDate> colFechaNacimiento;
+
+    private ObservableList<Persona> listaPersonas = FXCollections.observableArrayList();
+
+    @FXML
+    private void cargarPersonas() {
+        listaPersonas.clear();
+        listaPersonas.addAll(PersonaDAO.obtenerTodas());
+        tablaPersonas.setItems(listaPersonas);
+    }
 
     @FXML
     private void initialize() {
         tablaPersonas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colDomicilio.setCellValueFactory(new PropertyValueFactory<>("domicilio"));
+        colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        colCorreoElectronico.setCellValueFactory(new PropertyValueFactory<>("correoElectronico"));
+        colFechaNacimiento.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
+        colGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
+
+        cargarPersonas();
     }
 }

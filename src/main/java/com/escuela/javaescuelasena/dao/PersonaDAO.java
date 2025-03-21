@@ -70,6 +70,56 @@ public class PersonaDAO {
             return false;
         }
     }
+
+    public static Persona buscarPorId(int id) {
+        String sql = "SELECT * FROM persona WHERE id_persona = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return new Persona(
+                        rs.getInt("id_persona"),
+                        rs.getString("cedula"),
+                        rs.getString("nombre"),
+                        rs.getString("domicilio"),
+                        rs.getString("telefono"),
+                        rs.getString("correo_electronico"),
+                        rs.getDate("fecha_nacimiento").toLocalDate(),
+                        rs.getString("genero")
+                );
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al buscar persona: " + e.getMessage());
+        }
+        return null;
+    }
+
+    public static boolean actualizar(Persona persona) {
+        String sql = "UPDATE persona SET cedula=?, nombre=?, domicilio=?, telefono=?, correo_electronico=?, fecha_nacimiento=?, genero=?, WHERE id_persona=?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, persona.getCedula());
+            stmt.setString(2, persona.getNombre());
+            stmt.setString(3, persona.getDomicilio());
+            stmt.setString(4, persona.getTelefono());
+            stmt.setString(5, persona.getCorreoElectronico());
+            stmt.setDate(6, java.sql.Date.valueOf(persona.getFechaNacimiento()));
+            stmt.setString(7, persona.getGenero());
+            stmt.setInt(8, persona.getId());
+
+            int filasAfectadas = stmt.executeUpdate();
+            return filasAfectadas > 0;
+        } catch (SQLException e) {
+            System.err.println("Error al actualizar persona: " + e.getMessage());
+            return false;
+        }
+    }
 }
 
 

@@ -74,12 +74,12 @@
             <TextField maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
             <TextField maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
             <TextField maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="163.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" text="Buscar" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+            <Button fx:id="btnBuscar" onAction="#buscarPersona" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="9" GridPane.rowIndex="3" />
             <ComboBox minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" promptText="Selecciona" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-            <Button prefWidth="100" text="Guardar" textFill="#2ecc71" GridPane.columnIndex="3" GridPane.rowIndex="12" />
-            <Button prefWidth="100" text="Modificar" textFill="#3498db" GridPane.columnIndex="4" GridPane.rowIndex="12" />
-            <Button prefWidth="100" text="Limpiar" textFill="#515d5e" GridPane.columnIndex="7" GridPane.rowIndex="12" />
-            <Button prefWidth="100" text="Eliminar" textFill="#ff4444" GridPane.columnIndex="9" GridPane.rowIndex="12" />
+            <Button fx:id="btnGuardar" onAction="#guardarPersona" prefWidth="100" text="Guardar" textFill="#2ecc71" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+            <Button fx:id="btnModificar" onAction="#modificarPersona" prefWidth="100" text="Modificar" textFill="#3498db" GridPane.columnIndex="4" GridPane.rowIndex="12" />
+            <Button fx:id="btnLimpiar" onAction="#limpiarPersona" prefWidth="100" text="Limpiar" textFill="#515d5e" GridPane.columnIndex="7" GridPane.rowIndex="12" />
+            <Button fx:id="btnEliminar" onAction="#eliminarPersona" prefWidth="100" text="Eliminar" textFill="#ff4444" GridPane.columnIndex="9" GridPane.rowIndex="12" />
          </children>
       </GridPane>
    </children>

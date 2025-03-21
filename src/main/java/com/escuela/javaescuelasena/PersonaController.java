@@ -80,7 +80,7 @@ public class PersonaController {
         if (PersonaDAO.guardar(persona)) {
             mostrarAlerta("Persona agregada con éxito");
         } else {
-            mostrarAlerta("No se pudo agregar la persona");
+            mostrarError("No se pudo agregar la persona");
         }
     }
 
@@ -139,7 +139,7 @@ public class PersonaController {
                     limpiarCampos();
                     cargarPersonas();
                 } else {
-                    mostrarAlerta("No se pudo eliminar la persona");
+                    mostrarError("No se pudo eliminar la persona");
                 }
             }
         });
@@ -186,7 +186,7 @@ public class PersonaController {
                     mostrarAlerta("Persona actualizada con éxito.");
                     cargarPersonas();
                 } else {
-                    mostrarAlerta("No se pudo actualizar la persona.");
+                    mostrarError("No se pudo actualizar la persona.");
                 }
             }
         });
@@ -210,6 +210,14 @@ public class PersonaController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información");
         alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+    private void mostrarError(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Ocurrio un problema");
         alert.setContentText(mensaje);
         alert.showAndWait();
     }

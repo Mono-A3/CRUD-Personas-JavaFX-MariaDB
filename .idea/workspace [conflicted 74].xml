@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="70a4178d-2b59-4566-9117-59f7dbab982e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/escuela/javaescuelasena/TestEliminarPersona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/escuela/javaescuelasena/dao/PersonaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/escuela/javaescuelasena/dao/PersonaDAO.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TestEliminarPersona.executor": "Run",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.TestEliminarPersona">
+    <configuration name="TestEliminarPersona" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.escuela.javaescuelasena.TestEliminarPersona" />
+      <module name="JavaEscuelaSENA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.escuela.javaescuelasena.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestEliminarPersona" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>

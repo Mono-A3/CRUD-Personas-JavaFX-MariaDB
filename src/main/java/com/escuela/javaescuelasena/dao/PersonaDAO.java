@@ -33,8 +33,8 @@ public class PersonaDAO {
         String sql = "SELECT * FROM persona";
 
         try (Connection conn = DatabaseConnection.getConnection();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(sql)) {
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
                 Persona persona = new Persona(
@@ -53,6 +53,22 @@ public class PersonaDAO {
             System.err.println("Error al obtener personas: " + e.getMessage());
         }
         return listaPersonas;
+    }
+
+    public static boolean eliminar(Persona persona) {
+        String sql = "DELETE FROM persona WHERE id_persona = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, persona.getId());
+
+            int filasAfectadas = stmt.executeUpdate();
+            return filasAfectadas > 0;
+        } catch (SQLException e) {
+            System.err.println("No se pudo eliminar la persona con ID " + persona.getId() + ": " + e.getMessage());
+            return false;
+        }
     }
 }
 

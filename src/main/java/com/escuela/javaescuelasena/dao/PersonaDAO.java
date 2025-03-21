@@ -2,6 +2,7 @@ package com.escuela.javaescuelasena.dao;
 
 import com.escuela.javaescuelasena.model.Persona;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,20 +34,20 @@ public class PersonaDAO {
         String sql = "SELECT * FROM persona";
 
         try (Connection conn = DatabaseConnection.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                Persona persona = new Persona(
-                        rs.getInt("id_persona"),
-                        rs.getString("cedula"),
-                        rs.getString("nombre"),
-                        rs.getString("domicilio"),
-                        rs.getString("telefono"),
-                        rs.getString("correo_electronico"),
-                        rs.getDate("fecha_nacimiento").toLocalDate(),
-                        rs.getString("genero")
-                );
+                int id = rs.getInt("id_persona");
+                String cedula = rs.getString("cedula");
+                String nombre = rs.getString("nombre");
+                String domicilio = rs.getString("domicilio");
+                String telefono = rs.getString("telefono");
+                String correo = rs.getString("correo_electronico");
+                LocalDate fechaNacimiento = rs.getDate("fecha_nacimiento") != null ? rs.getDate("fecha_nacimiento").toLocalDate() : null;
+                String genero = rs.getString("genero");
+
+                Persona persona = new Persona(id, cedula, nombre, domicilio, telefono, correo, fechaNacimiento, genero);
                 listaPersonas.add(persona);
             }
         } catch (SQLException e) {
@@ -88,7 +89,7 @@ public class PersonaDAO {
                         rs.getString("domicilio"),
                         rs.getString("telefono"),
                         rs.getString("correo_electronico"),
-                        rs.getDate("fecha_nacimiento").toLocalDate(),
+                        rs.getDate("fecha_nacimiento") != null ? rs.getDate("fecha_nacimiento").toLocalDate() : null,
                         rs.getString("genero")
                 );
             }
@@ -99,7 +100,7 @@ public class PersonaDAO {
     }
 
     public static boolean actualizar(Persona persona) {
-        String sql = "UPDATE persona SET cedula=?, nombre=?, domicilio=?, telefono=?, correo_electronico=?, fecha_nacimiento=?, genero=?, WHERE id_persona=?";
+        String sql = "UPDATE persona SET cedula=?, nombre=?, domicilio=?, telefono=?, correo_electronico=?, fecha_nacimiento=?, genero=? WHERE id_persona=?";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -109,12 +110,11 @@ public class PersonaDAO {
             stmt.setString(3, persona.getDomicilio());
             stmt.setString(4, persona.getTelefono());
             stmt.setString(5, persona.getCorreoElectronico());
-            stmt.setDate(6, java.sql.Date.valueOf(persona.getFechaNacimiento()));
+            stmt.setDate(6, persona.getFechaNacimiento() != null ? Date.valueOf(persona.getFechaNacimiento()) : null);
             stmt.setString(7, persona.getGenero());
             stmt.setInt(8, persona.getId());
 
-            int filasAfectadas = stmt.executeUpdate();
-            return filasAfectadas > 0;
+            return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error al actualizar persona: " + e.getMessage());
             return false;

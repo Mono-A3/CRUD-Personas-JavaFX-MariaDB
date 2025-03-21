@@ -16,6 +16,53 @@ public class PersonaController {
     @FXML private ComboBox<String> cbGenero;
     @FXML private TextField txtId;
     @FXML private Button btnAgregar, btnBuscar, btnEliminar, btnModificar;
+    @FXML private TableView<Persona> tablaPersonas;
+    @FXML private TableColumn<Persona, Integer> colId;
+    @FXML private TableColumn<Persona, String> colCedula, colNombre, colDomicilio, colTelefono, colCorreoElectronico, colGenero;
+    @FXML private TableColumn<Persona, LocalDate> colFechaNacimiento;
+
+    private ObservableList<Persona> listaPersonas = FXCollections.observableArrayList();
+
+    @FXML
+    private void initialize() {
+        cbGenero.setItems(FXCollections.observableArrayList("Masculino", "Femenino"));
+
+        tablaPersonas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colDomicilio.setCellValueFactory(new PropertyValueFactory<>("domicilio"));
+        colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        colCorreoElectronico.setCellValueFactory(new PropertyValueFactory<>("correoElectronico"));
+        colFechaNacimiento.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
+        colGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
+
+        cargarPersonas();
+
+        tablaPersonas.setOnMouseClicked(event -> {
+            Persona personaSeleccionada = tablaPersonas.getSelectionModel().getSelectedItem();
+
+            if (personaSeleccionada != null) {
+                txtId.setText(String.valueOf(personaSeleccionada.getId()));
+                txtCedula.setText(personaSeleccionada.getCedula());
+                txtNombre.setText(personaSeleccionada.getNombre());
+                txtDomicilio.setText(personaSeleccionada.getDomicilio());
+                txtTelefono.setText(personaSeleccionada.getTelefono());
+                txtCorreo.setText(personaSeleccionada.getCorreoElectronico());
+                dpFechaNacimiento.setValue(personaSeleccionada.getFechaNacimiento());
+                cbGenero.setValue(personaSeleccionada.getGenero());
+            }
+        });
+
+    }
+
+    @FXML
+    private void cargarPersonas() {
+        listaPersonas.clear();
+        listaPersonas.addAll(PersonaDAO.obtenerTodas());
+        tablaPersonas.setItems(listaPersonas);
+    }
 
     @FXML
     private void agregarPersona() {
@@ -39,8 +86,15 @@ public class PersonaController {
 
     @FXML
     private void buscarPersona() {
+        if (txtId.getText().isEmpty()) {
+            mostrarAlerta("Por favor, ingrese un ID para buscar.");
+            return;
+        }
+
         int id = Integer.parseInt(txtId.getText());
         Persona persona = PersonaDAO.buscarPorId(id);
+
+        listaPersonas.clear();
 
         if (persona != null) {
             txtCedula.setText(persona.getCedula());
@@ -50,9 +104,13 @@ public class PersonaController {
             txtCorreo.setText(persona.getCorreoElectronico());
             dpFechaNacimiento.setValue(persona.getFechaNacimiento());
             cbGenero.setValue(persona.getGenero());
+
+            listaPersonas.add(persona);
         } else {
             mostrarAlerta("No se encontró ninguna persona con ese ID.");
         }
+
+        tablaPersonas.setItems(listaPersonas);
     }
 
     @FXML
@@ -62,6 +120,7 @@ public class PersonaController {
 
         if (PersonaDAO.eliminar(persona)) {
             mostrarAlerta("Persona eliminada correctamente.");
+            cargarPersonas();
         } else {
             mostrarAlerta("No se pudo eliminar la persona");
         }
@@ -70,6 +129,8 @@ public class PersonaController {
     @FXML
     private void modificarPersona() {
         int id = Integer.parseInt(txtId.getText());
+        LocalDate fechaNacimiento = dpFechaNacimiento.getValue();
+
         Persona persona = new Persona(
                 id,
                 txtCedula.getText(),
@@ -77,23 +138,16 @@ public class PersonaController {
                 txtDomicilio.getText(),
                 txtTelefono.getText(),
                 txtCorreo.getText(),
-                dpFechaNacimiento.getValue(),
+                fechaNacimiento != null ? fechaNacimiento : LocalDate.now(),
                 cbGenero.getValue()
         );
 
         if (PersonaDAO.actualizar(persona)) {
             mostrarAlerta("Persona actualizada con éxito.");
+            cargarPersonas();
         } else {
             mostrarAlerta("No se pudo actualizar la persona.");
         }
-    }
-
-    private void mostrarAlerta(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Información");
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
     }
 
     @FXML
@@ -106,39 +160,15 @@ public class PersonaController {
         txtCorreo.clear();
         dpFechaNacimiento.setValue(null);
         cbGenero.setValue(null);
-    }
-
-    @FXML
-    private TableView<Persona> tablaPersonas;
-    @FXML
-    private TableColumn<Persona, Integer> colId;
-    @FXML
-    private TableColumn<Persona, String> colCedula, colNombre, colDomicilio, colTelefono, colCorreoElectronico, colGenero;
-    @FXML
-    private TableColumn<Persona, LocalDate> colFechaNacimiento;
-
-    private ObservableList<Persona> listaPersonas = FXCollections.observableArrayList();
-
-    @FXML
-    private void cargarPersonas() {
-        listaPersonas.clear();
-        listaPersonas.addAll(PersonaDAO.obtenerTodas());
-        tablaPersonas.setItems(listaPersonas);
-    }
-
-    @FXML
-    private void initialize() {
-        tablaPersonas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
-        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        colDomicilio.setCellValueFactory(new PropertyValueFactory<>("domicilio"));
-        colTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
-        colCorreoElectronico.setCellValueFactory(new PropertyValueFactory<>("correoElectronico"));
-        colFechaNacimiento.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
-        colGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
 
         cargarPersonas();
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }

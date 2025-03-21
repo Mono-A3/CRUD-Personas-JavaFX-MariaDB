@@ -2,17 +2,18 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
 
-<VBox prefWidth="1200" prefHeight="900" spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.escuela.javaescuelasena.PersonaController">
+<VBox alignment="CENTER" prefHeight="900" prefWidth="1200" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.escuela.javaescuelasena.PersonaController">
     <GridPane alignment="center" hgap="10" vgap="10">
        <columnConstraints>
           <ColumnConstraints />
@@ -27,7 +28,7 @@
           <RowConstraints />
        </rowConstraints>
        <children>
-          <GridPane prefWidth="1200" prefHeight="600">
+          <GridPane prefHeight="600" prefWidth="1200">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="87.0" />
@@ -71,34 +72,34 @@
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Nacimiento:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Genero:" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id:" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                <TextField maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                <TextField maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                <TextField maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                <TextField maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                <TextField maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                <TextField maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-                <TextField maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="163.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-                <Button fx:id="btnBuscar" onAction="#buscarPersona" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="9" GridPane.rowIndex="3" />
-                <ComboBox minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" promptText="Selecciona" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                <TextField fx:id="txtCedula" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                <TextField fx:id="txtNombre" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                <TextField fx:id="txtDomicilio" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                <TextField fx:id="txtTelefono" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                <TextField fx:id="txtCorreo" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                <TextField fx:id="txtId" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="163.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscarPersona" text="Buscar" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+                <ComboBox fx:id="cbGenero" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" promptText="Selecciona" GridPane.columnIndex="3" GridPane.rowIndex="9" />
                 <Button fx:id="btnGuardar" onAction="#agregarPersona" prefWidth="100" text="Guardar" textFill="#2ecc71" GridPane.columnIndex="3" GridPane.rowIndex="12" />
                 <Button fx:id="btnModificar" onAction="#modificarPersona" prefWidth="100" text="Modificar" textFill="#3498db" GridPane.columnIndex="4" GridPane.rowIndex="12" />
                 <Button fx:id="btnLimpiar" onAction="#limpiarCampos" prefWidth="100" text="Limpiar" textFill="#515d5e" GridPane.columnIndex="7" GridPane.rowIndex="12" />
                 <Button fx:id="btnEliminar" onAction="#eliminarPersona" prefWidth="100" text="Eliminar" textFill="#ff4444" GridPane.columnIndex="9" GridPane.rowIndex="12" />
+               <DatePicker fx:id="dpFechaNacimiento" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="8" />
              </children>
           </GridPane>
        </children>
     </GridPane>
 
-    <TableView fx:id="tablaPersonas" prefWidth="1150" prefHeight="250">
+    <TableView fx:id="tablaPersonas" prefHeight="250" prefWidth="1150">
         <columns>
-            <TableColumn text="ID" fx:id="colId" prefWidth="50"/>
-            <TableColumn text="Cédula" fx:id="colCedula" prefWidth="120"/>
-            <TableColumn text="Nombre" fx:id="colNombre" prefWidth="180"/>
-            <TableColumn text="Domicilio" fx:id="colDomicilio" prefWidth="180"/>
-            <TableColumn text="Teléfono" fx:id="colTelefono" prefWidth="130"/>
-            <TableColumn text="Correo Electrónico" fx:id="colCorreoElectronico" prefWidth="200"/>
-            <TableColumn text="Fecha Nacimiento" fx:id="colFechaNacimiento" prefWidth="150"/>
-            <TableColumn text="Género" fx:id="colGenero" prefWidth="80"/>
+            <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+            <TableColumn fx:id="colCedula" prefWidth="120" text="Cédula" />
+            <TableColumn fx:id="colNombre" prefWidth="180" text="Nombre" />
+            <TableColumn fx:id="colDomicilio" prefWidth="180" text="Domicilio" />
+            <TableColumn fx:id="colTelefono" prefWidth="130" text="Teléfono" />
+            <TableColumn fx:id="colCorreoElectronico" prefWidth="200" text="Correo Electrónico" />
+            <TableColumn fx:id="colFechaNacimiento" prefWidth="150" text="Fecha Nacimiento" />
+            <TableColumn fx:id="colGenero" prefWidth="80" text="Género" />
         </columns>
     </TableView>
 </VBox>

@@ -8,8 +8,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
 
-<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.escuela.javaescuelasena.PersonaController">
+<VBox prefWidth="1200" prefHeight="900" spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.escuela.javaescuelasena.PersonaController">
     <GridPane alignment="center" hgap="10" vgap="10">
        <columnConstraints>
           <ColumnConstraints />
@@ -24,7 +27,7 @@
           <RowConstraints />
        </rowConstraints>
        <children>
-          <GridPane prefHeight="544.0" prefWidth="729.0">
+          <GridPane prefWidth="1200" prefHeight="600">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="87.0" />
@@ -77,20 +80,25 @@
                 <TextField maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="163.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
                 <Button fx:id="btnBuscar" onAction="#buscarPersona" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="9" GridPane.rowIndex="3" />
                 <ComboBox minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" promptText="Selecciona" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-                <Button fx:id="btnGuardar" onAction="#guardarPersona" prefWidth="100" text="Guardar" textFill="#2ecc71" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                <Button fx:id="btnGuardar" onAction="#agregarPersona" prefWidth="100" text="Guardar" textFill="#2ecc71" GridPane.columnIndex="3" GridPane.rowIndex="12" />
                 <Button fx:id="btnModificar" onAction="#modificarPersona" prefWidth="100" text="Modificar" textFill="#3498db" GridPane.columnIndex="4" GridPane.rowIndex="12" />
-                <Button fx:id="btnLimpiar" onAction="#limpiarPersona" prefWidth="100" text="Limpiar" textFill="#515d5e" GridPane.columnIndex="7" GridPane.rowIndex="12" />
+                <Button fx:id="btnLimpiar" onAction="#limpiarCampos" prefWidth="100" text="Limpiar" textFill="#515d5e" GridPane.columnIndex="7" GridPane.rowIndex="12" />
                 <Button fx:id="btnEliminar" onAction="#eliminarPersona" prefWidth="100" text="Eliminar" textFill="#ff4444" GridPane.columnIndex="9" GridPane.rowIndex="12" />
              </children>
           </GridPane>
        </children>
     </GridPane>
 
-    <TableView fx:id="tablaPersonas" prefWidth="700" prefHeight="200">
+    <TableView fx:id="tablaPersonas" prefWidth="1150" prefHeight="250">
         <columns>
             <TableColumn text="ID" fx:id="colId" prefWidth="50"/>
-            <TableColumn text="Cédula" fx:id="colCedula" prefWidth="150"/>
-            <TableColumn text="Nombre" fx:id="colNombre" prefWidth="200"/>
+            <TableColumn text="Cédula" fx:id="colCedula" prefWidth="120"/>
+            <TableColumn text="Nombre" fx:id="colNombre" prefWidth="180"/>
+            <TableColumn text="Domicilio" fx:id="colDomicilio" prefWidth="180"/>
+            <TableColumn text="Teléfono" fx:id="colTelefono" prefWidth="130"/>
+            <TableColumn text="Correo Electrónico" fx:id="colCorreoElectronico" prefWidth="200"/>
+            <TableColumn text="Fecha Nacimiento" fx:id="colFechaNacimiento" prefWidth="150"/>
+            <TableColumn text="Género" fx:id="colGenero" prefWidth="80"/>
         </columns>
     </TableView>
 </VBox>

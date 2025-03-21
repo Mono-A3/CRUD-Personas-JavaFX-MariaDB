@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("persona-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 729, 544);
+        Scene scene = new Scene(fxmlLoader.load(), 1150, 850);
         stage.setTitle("Escuela");
         stage.getIcons().add(new Image(Main.class.getResourceAsStream("favicon.png")));
         stage.setScene(scene);

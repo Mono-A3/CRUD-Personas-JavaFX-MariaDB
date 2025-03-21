@@ -93,6 +93,7 @@ public class PersonaController {
         alert.showAndWait();
     }
 
+    @FXML
     private void limpiarCampos() {
         txtId.clear();
         txtCedula.clear();
@@ -102,5 +103,13 @@ public class PersonaController {
         txtCorreo.clear();
         dpFechaNacimiento.setValue(null);
         cbGenero.setValue(null);
+    }
+
+    @FXML
+    private TableView<Persona> tablaPersonas;
+
+    @FXML
+    private void initialize() {
+        tablaPersonas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 }

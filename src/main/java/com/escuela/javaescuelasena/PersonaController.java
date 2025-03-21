@@ -115,15 +115,34 @@ public class PersonaController {
 
     @FXML
     private void eliminarPersona() {
-        int id = Integer.parseInt(txtId.getText());
-        Persona persona = new Persona(id, "", "", "", "", "", null, "");
-
-        if (PersonaDAO.eliminar(persona)) {
-            mostrarAlerta("Persona eliminada correctamente.");
-            cargarPersonas();
-        } else {
-            mostrarAlerta("No se pudo eliminar la persona");
+        if (txtId.getText().isEmpty()) {
+            mostrarAlerta("Por favor, ingrese un ID antes de eliminar.");
+            return;
         }
+
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Confirmación de eliminación");
+        confirmacion.setHeaderText("¿Estás seguro?");
+        confirmacion.setContentText("Esta acción eliminará a la persona permanentemente.");
+
+        ButtonType botonSi = new ButtonType("Sí", ButtonBar.ButtonData.OK_DONE);
+        ButtonType botonNo = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+        confirmacion.getButtonTypes().setAll(botonSi, botonNo);
+
+        confirmacion.showAndWait().ifPresent(response -> {
+            if (response == botonSi) {
+                int id = Integer.parseInt(txtId.getText());
+                Persona persona = new Persona (id, "", "", "", "", "",null, "");
+
+                if (PersonaDAO.eliminar(persona)) {
+                    mostrarAlerta("Persona eliminada correctamente.");
+                    limpiarCampos();
+                    cargarPersonas();
+                } else {
+                    mostrarAlerta("No se pudo eliminar la persona");
+                }
+            }
+        });
     }
 
     @FXML

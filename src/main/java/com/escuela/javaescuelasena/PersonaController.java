@@ -92,4 +92,15 @@ public class PersonaController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+    private void limpiarCampos() {
+        txtId.clear();
+        txtCedula.clear();
+        txtNombre.clear();
+        txtDomicilio.clear();
+        txtTelefono.clear();
+        txtCorreo.clear();
+        dpFechaNacimiento.setValue(null);
+        cbGenero.setValue(null);
+    }
 }

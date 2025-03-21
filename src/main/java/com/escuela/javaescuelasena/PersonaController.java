@@ -147,26 +147,49 @@ public class PersonaController {
 
     @FXML
     private void modificarPersona() {
-        int id = Integer.parseInt(txtId.getText());
-        LocalDate fechaNacimiento = dpFechaNacimiento.getValue();
-
-        Persona persona = new Persona(
-                id,
-                txtCedula.getText(),
-                txtNombre.getText(),
-                txtDomicilio.getText(),
-                txtTelefono.getText(),
-                txtCorreo.getText(),
-                fechaNacimiento != null ? fechaNacimiento : LocalDate.now(),
-                cbGenero.getValue()
-        );
-
-        if (PersonaDAO.actualizar(persona)) {
-            mostrarAlerta("Persona actualizada con éxito.");
-            cargarPersonas();
-        } else {
-            mostrarAlerta("No se pudo actualizar la persona.");
+        if (txtId.getText().isEmpty()) {
+            mostrarAlerta("Por favor, ingrese un Id antes de modificar.");
+            return;
         }
+
+        if (txtCedula.getText().isEmpty() || txtNombre.getText().isEmpty() || txtDomicilio.getText().isEmpty() || txtTelefono.getText().isEmpty() || txtCorreo.getText().isEmpty() || dpFechaNacimiento.getValue() == null || cbGenero.getValue() == null) {
+            mostrarAlerta("Por favor, complete todos los campos antes de modificar.");
+            return;
+        }
+
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Confirmación de modificación");
+        confirmacion.setHeaderText("¿Deseas modificar los datos?");
+        confirmacion.setContentText("Se actualizarán los datos de la persona en la base de datos.");
+
+        ButtonType botonSi = new ButtonType("Sí", ButtonBar.ButtonData.OK_DONE);
+        ButtonType botonNo = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+        confirmacion.getButtonTypes().setAll(botonSi, botonNo);
+
+        confirmacion.showAndWait().ifPresent(response -> {
+            if (response == botonSi) {
+                int id = Integer.parseInt(txtId.getText());
+                LocalDate fechaNacimiento = dpFechaNacimiento.getValue();
+
+                Persona persona = new Persona(
+                        id,
+                        txtCedula.getText(),
+                        txtNombre.getText(),
+                        txtDomicilio.getText(),
+                        txtTelefono.getText(),
+                        txtCorreo.getText(),
+                        fechaNacimiento != null ? fechaNacimiento : LocalDate.now(),
+                        cbGenero.getValue()
+                );
+
+                if (PersonaDAO.actualizar(persona)) {
+                    mostrarAlerta("Persona actualizada con éxito.");
+                    cargarPersonas();
+                } else {
+                    mostrarAlerta("No se pudo actualizar la persona.");
+                }
+            }
+        });
     }
 
     @FXML

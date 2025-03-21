@@ -4,6 +4,7 @@
       <w>domicilio</w>
       <w>genero</w>
       <w>nombre</w>
+      <w>teléfono</w>
     </words>
   </dictionary>
 </component>

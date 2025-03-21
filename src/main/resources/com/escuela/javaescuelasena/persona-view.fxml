@@ -64,13 +64,13 @@
                       <Font name="Fira Code Bold" size="18.0" />
                    </font>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cedula:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cédula:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Domicilio:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Nacimiento:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Genero:" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Género:" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Id:" GridPane.columnIndex="6" GridPane.rowIndex="3" />
                 <TextField fx:id="txtCedula" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                 <TextField fx:id="txtNombre" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />

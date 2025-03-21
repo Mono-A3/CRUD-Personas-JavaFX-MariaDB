@@ -33,7 +33,7 @@ public class PersonaDAO {
         String sql = "SELECT * FROM persona";
 
         try (Connection conn = DatabaseConnection.getConnection();
-        Statement stml = conn.createStatement();
+        Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {

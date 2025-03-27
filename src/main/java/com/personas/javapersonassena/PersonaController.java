@@ -1,7 +1,7 @@
-package com.escuela.javaescuelasena;
+package com.personas.javapersonassena;
 
-import com.escuela.javaescuelasena.dao.PersonaDAO;
-import com.escuela.javaescuelasena.model.Persona;
+import com.personas.javapersonassena.dao.PersonaDAO;
+import com.personas.javapersonassena.model.Persona;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

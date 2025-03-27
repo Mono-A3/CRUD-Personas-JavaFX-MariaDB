@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="JavaEscuelaSENA" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.escuela.javaescuelasena.Main" />
-    <module name="JavaEscuelaSENA" />
+  <configuration default="false" name="JavaPersonasSENA" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.personas.javapersonassena.Main" />
+    <module name="JavaPersonasSENA" />
     <option name="VM_PARAMETERS" value="--enable-native-access=javafx.graphics " />
     <method v="2">
       <option name="Make" enabled="true" />

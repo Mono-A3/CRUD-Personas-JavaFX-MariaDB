@@ -1,4 +1,4 @@
-package com.escuela.javaescuelasena.dao;
+package com.personas.javapersonassena.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

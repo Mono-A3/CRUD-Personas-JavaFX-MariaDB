@@ -1,6 +1,6 @@
-package com.escuela.javaescuelasena.dao;
+package com.personas.javapersonassena.dao;
 
-import com.escuela.javaescuelasena.model.Persona;
+import com.personas.javapersonassena.model.Persona;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;

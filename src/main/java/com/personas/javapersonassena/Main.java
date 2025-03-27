@@ -1,4 +1,4 @@
-package com.escuela.javaescuelasena;
+package com.personas.javapersonassena;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -12,9 +12,9 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("persona-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/com/personas/javapersonassena/persona-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1150, 850);
-        stage.setTitle("Escuela");
+        stage.setTitle("Personas");
         stage.getIcons().add(new Image(Main.class.getResourceAsStream("favicon.png")));
         stage.setScene(scene);
         stage.setResizable(false);

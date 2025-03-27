@@ -1,6 +1,6 @@
-CREATE DATABASE db_sena_escuela;
+CREATE DATABASE db_sena_personas;
 
-USE db_sena_escuela;
+USE db_sena_personas;
 
 CREATE TABLE persona (
 	id_persona INT NOT NULL AUTO_INCREMENT,
@@ -16,7 +16,7 @@ CREATE TABLE persona (
 
 INSERT
 	INTO
-	db_sena_escuela.persona (cedula,
+	db_sena_personas.persona (cedula,
 	nombre,
 	domicilio,
 	telefono,
@@ -36,7 +36,7 @@ VALUES (
 
 INSERT
 	INTO
-	db_sena_escuela.persona (cedula,
+	db_sena_personas.persona (cedula,
 	nombre,
 	domicilio,
 	telefono,
@@ -56,7 +56,7 @@ VALUES (
 
 INSERT
 	INTO
-	db_sena_escuela.persona (cedula,
+	db_sena_personas.persona (cedula,
 	nombre,
 	domicilio,
 	telefono,
@@ -77,4 +77,4 @@ VALUES (
 SELECT
 	*
 FROM
-	db_sena_escuela.persona;
+	db_sena_personas.persona;

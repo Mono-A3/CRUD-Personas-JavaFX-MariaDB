@@ -1,4 +1,4 @@
-package com.escuela.javaescuelasena.model;
+package com.personas.javapersonassena.model;
 
 import java.time.LocalDate;
 

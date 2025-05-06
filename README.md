@@ -3,7 +3,7 @@
 🚀 ¡Bienvenido a CRUD-Personas-JavaFX-MariaDB! Este proyecto es una aplicación de escritorio desarrollada en JavaFX que permite la gestión de personas mediante un CRUD (Crear, Leer, Actualizar y Eliminar) con conexión a MariaDB.
 ## 🌟 Descripción
 
-**CRUD-Personas-JavaFX-MariaDB** es una aplicación interactiva para la gestión de datos de personas. Ofrece una interfaz intuitiva para registrar, modificar, eliminar y buscar registros almacenados en una base de datos **MariaDB**, asegurando una experiencia fluida y segura para el usuario.
+Aplicación de escritorio para gestionar eficientemente datos personales. Ofrece funcionalidades CRUD (crear, leer, actualizar, eliminar) conectadas a una base de datos MariaDB mediante JDBC. Desarrollada en Java utilizando JavaFX para la interfaz gráfica, aplicando el patrón MVC para una mejor organización del código y separación de responsabilidades.
 
 ## 📌 Funcionalidades
 
